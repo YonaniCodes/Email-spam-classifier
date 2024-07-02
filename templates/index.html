@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <style>
+    .header{
+      width: 100%;
+      padding: 1.2rem 4rem;
+      background-color: #27292d;
+    }
+    a{
+      /* color: rgb(48, 169, 234);  */
+      color: rgb(255, 255, 255) !important; 
+      text-decoration: none;
+      font-size: 1.5rem ;
+    }
+    a:hover{
+      color: aliceblue;
+    }
+    .hero{
+      /* border: 1px solid green; */
+      margin: 6rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .gif{
+      width: 400px;
+      height: 250px;
+    }
+    .spam,.ham{
+      margin: 1rem 0;
+      font-size: 1.5rem;
+    }
+    .spam{
+      color: green;
+    }
+    .ham{
+      color: red;
+    }
+    .btn{
+      margin-top: 10px;
+      margin-left: 180px;
+    }
+    body{
+      background-color:#212529 ;
+      color: white;
+      height: 100vh;
+    }
+    button{
+      background-color:rgb(48, 169, 234); 
+      color: white;
+      border: none;
+      padding: 4px 2rem;
+      border-radius: 1rem;
+      font-size: 1rem;
+      margin-left: 12rem;
+      margin-top: 1rem;
+      
+      
+    }
+    textarea{
+      background-color: #3a3b3b ;
+      border: none;
+      outline: none;
+      color: rgb(125, 125, 125);
+    }
+  </style>
+  <title>Spam Dective Model</title>
+</head>
+
+<body>
+
+ 
+
+  <div class="header ">
+        <a href="/">Spam Dective Model</a>
+  </div>
+
+
+  <!-- Input form -->
+
+  <div class="hero">
+    <!-- <h2 class="text-center mt-3"></h2> -->
+
+    <form action="/" method="POST">
+ 
+        <textarea  placeholder="Write down the Email to check if it's Spam or not ......." id="email" name="email"  cols="70" rows="10"></textarea>
+        <!-- <label for="email">Write your email here...</label> -->
+         <div>
+          <button>Predict</button>
+         </div>
+ 
+
+    </form>
+    <div class="results">
+      {% if prediction==1 %}
+      
+      <img class="gif" src="{{ url_for('static', filename='spam.webp') }}" alt="SPAM Image">
+      {% elif prediction==0 %}
+ 
+      <img class="gif" src="{{ url_for('static', filename='not-spam.webp') }}" alt="Not a spam image">
+      {% endif %}
+    </div>
+
+  </div>
+
+
+
+</body>
+
+</html>
